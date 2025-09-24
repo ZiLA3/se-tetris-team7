@@ -14,21 +14,11 @@ class BoardController
     {
         switch(event.getCode())
         {
-            case LEFT:
-                this.moveBlock(Direction.LEFT);
-                break;
-            case RIGHT:
-                this.moveBlock(Direction.RIGHT);
-                break;
-            case DOWN:
-                this.moveBlock(Direction.DOWN);
-                break;
-            case UP:
-                this.moveBlock(Direction.ROTATE);
-                break;
-            case SPACE:
-                this.moveBlock(Direction.DROP);
-                break;
+            case LEFT -> this.moveBlock(Direction.LEFT);
+            case RIGHT -> this.moveBlock(Direction.RIGHT);
+            case DOWN -> this.moveBlock(Direction.DOWN);
+            case UP -> this.moveBlock(Direction.ROTATE);
+            case SPACE -> this.moveBlock(Direction.DROP);
         }
     }
     void moveBlock(Direction direction)

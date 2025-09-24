@@ -13,21 +13,11 @@ abstract class MenuController
     {
         switch(event.getCode())
         {
-            case LEFT:
-                this.executeMenu(Command.LEFT);
-                break;
-            case RIGHT:
-                this.executeMenu(Command.RIGHT);
-                break;
-            case DOWN:
-                this.executeMenu(Command.DOWN);
-                break;
-            case UP:
-                this.executeMenu(Command.UP);
-                break;
-            case ENTER:
-                this.executeMenu(Command.SELECT);
-                break;
+            case LEFT -> this.executeMenu(Command.LEFT);
+            case RIGHT -> this.executeMenu(Command.RIGHT);
+            case DOWN -> this.executeMenu(Command.DOWN);
+            case UP -> this.executeMenu(Command.UP);
+            case ENTER -> this.executeMenu(Command.SELECT);
         }
     }
     abstract void executeMenu(Command command) {

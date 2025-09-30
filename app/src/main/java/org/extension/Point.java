@@ -4,26 +4,53 @@ public class Point {
     public int r;
     public int c;
 
+    /**
+     * Point 생성자
+     * @param r 행 좌표
+     * @param c 열 좌표
+     */
     public Point(int r, int c) {
         this.r = r;
         this.c = c;
     }
 
+    /**
+     * 현재 좌표에 주어진 값을 더합니다.
+     * @param r 더할 행 좌표값
+     * @param c 더할 열 좌표값
+     * @return 더한 결과의 새로운 Point 객체
+     */
     public Point add(int r, int c)
     {
         return new Point(this.r + r, this.c + c);
     }
 
+    /**
+     * 현재 좌표에 다른 Point의 좌표를 더합니다.
+     * @param pos 더할 Point 객체
+     * @return 두 Point를 더한 결과의 새로운 Point 객체
+     */
     public Point add(Point pos)
     {
         return new Point(r + pos.r, c + pos.c);
     }
 
+    /**
+     * 현재 좌표에서 주어진 값을 뺍니다.
+     * @param r 뺄 행 좌표값
+     * @param c 뺄 열 좌표값
+     * @return 뺀 결과의 새로운 Point 객체
+     */
     public Point subtract(int r, int c)
     {
         return new Point(this.r - r, this.c - c);
     }
 
+    /**
+     * 현재 좌표에서 다른 Point의 좌표를 뺍니다.
+     * @param pos 뺄 Point 객체
+     * @return 두 Point를 뺀 결과의 새로운 Point 객체
+     */
     public Point subtract(Point pos)
     {
         return new Point(r - pos.r, c - pos.c);

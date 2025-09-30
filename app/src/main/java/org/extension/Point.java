@@ -1,7 +1,5 @@
 package org.extension;
 
-import java.util.Objects;
-
 public class Point {
     public int r;
     public int c;

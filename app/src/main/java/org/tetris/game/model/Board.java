@@ -1,6 +1,5 @@
 package org.tetris.game.model;
 
-import java.util.Random;
 import org.tetris.game.model.blocks.*;
 import org.util.Point;
 

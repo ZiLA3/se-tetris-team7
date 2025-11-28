@@ -65,7 +65,10 @@ public final class Router {
     }
 
     public void showNetworkMenu() {
-        show(networkMenuFactory);
+        var controller = show(networkMenuFactory);
+        if (controller instanceof NetworkMenuController nmController) {
+            nmController.initialize();
+        }
     }
 
     public void showGamePlaceholder(boolean itemMode) {

@@ -6,18 +6,18 @@ package org.tetris.network.comand;
  */
 public class UpdateStateCommand implements GameCommand {
     private static final long serialVersionUID = 1L;
-    private final String state;
+    private final int[][] board;
 
-    public UpdateStateCommand(String state) {
-        this.state = state;
+    public UpdateStateCommand(int[][] board) {
+        this.board = board;
     }
 
     @Override
     public void execute(GameCommandExecutor executor) {
-        executor.updateState(state);
+        executor.updateState(board);
     }
 
-    public String getState() {
-        return state;
+    public int[][] getBoard() {
+        return board;
     }
 }

@@ -37,6 +37,12 @@ public class Board extends BaseModel {
         return board;
     }
 
+    public void setBoard(int[][] newBoard) {
+        for (int r = 0; r < height; r++) {
+            System.arraycopy(newBoard[r], 0, board[r], 0, width);
+        }
+    }
+
     public Point getSize() {
         return new Point(height, width);
     }

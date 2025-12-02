@@ -37,7 +37,7 @@ public interface GameCommandExecutor {
     void attack(int lines);
 
     // 기타
-    void updateState(String state);
+    void updateState(int[][] board);
 
     void updatePing(long ping);
 

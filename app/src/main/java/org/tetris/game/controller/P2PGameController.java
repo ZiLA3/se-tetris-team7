@@ -164,6 +164,17 @@ public class P2PGameController extends DualGameController<P2PGameModel>
             client.sendCommand(command);
         }
     }
+
+    @Override
+    protected void lockCurrentBlock(PlayerSlot player) {
+        super.lockCurrentBlock(player);
+        
+        // 로컬 플레이어가 블록을 고정했을 때만 서버에 알림
+        if (player == getLocalPlayer()) {
+            var boardState = player.boardModel.getBoard();
+            client.sendCommand(new UpdateStateCommand(boardState));
+        }
+    }
     
     /**
      * PAUSE 버튼 클릭 시 호출되는 메서드 오버라이드
@@ -625,8 +636,14 @@ public class P2PGameController extends DualGameController<P2PGameModel>
     }
 
     @Override
-    public void updateState(String state) {
-        // Sync state if needed
+    public void updateState(int[][] board) {
+        Platform.runLater(() -> {
+            PlayerSlot remotePlayer = getRemotePlayer();
+            if (remotePlayer != null) {
+                remotePlayer.boardModel.setBoard(board);
+                updateGameBoard(remotePlayer);
+            }
+        });
     }
 
     @Override
